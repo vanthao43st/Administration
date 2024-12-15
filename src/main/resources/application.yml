@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /identity
+
+spring:
+  application:
+    name: administration
+  datasource:
+    url: ${DBMS_CONNECTION:jdbc:mysql://localhost:3306/jp20067_data?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false#spring.datasource.username=root}   #Sử dụng biến môi trường,
+    driverClassName: "com.mysql.cj.jdbc.Driver"                     #nếu có biến môi trường thì sẽ sử dụng biến môi trường,
+    username: ${DBMS_USERNAME:root}                                 #không có biến môi trường sẽ sử dụng giá trị default
+    password: ${DBMS_PASSWORD:123456}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  signerKey: Sv+W/DqXKss7KW6Pp22QISdB6DcXkXazysCd3QyD3Fiw1EdpggTGrLD2+xzgNJ06
